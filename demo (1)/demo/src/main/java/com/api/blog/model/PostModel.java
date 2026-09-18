@@ -39,10 +39,9 @@ public class PostModel implements Serializable{
 		
 	}
 
-	public PostModel(UUID id, String autor, LocalDate data, String titulo, String texto) {
-		this.id = id;
+	public PostModel(String autor,String titulo, String texto) {
 		this.autor = autor;
-		this.data = data;
+		this.data = LocalDate.now();
 		this.titulo = titulo;
 		this.texto = texto;
 	}

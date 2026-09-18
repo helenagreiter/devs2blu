@@ -11,3 +11,4 @@ import com.api.blog.model.PostModel;
 public interface PostRepository extends JpaRepository<PostModel, UUID> {
 
 }
+
