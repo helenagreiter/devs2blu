@@ -54,7 +54,7 @@ public class AlunoService {
                 );
             }
         }
-        return null;
+     throw new RuntimeException("Aluno não entcontrado");
     }
 
     public AlunoResponse cadastrarAluno(AlunoRequest req) {
