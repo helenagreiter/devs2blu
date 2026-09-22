@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import com.reiter.atividade1109apialunos.dto.AlunoRequest;
 import com.reiter.atividade1109apialunos.dto.AlunoResponse;
+import com.reiter.atividade1109apialunos.exception.AlunoNaoEncontradoException;
+import com.reiter.atividade1109apialunos.exception.EmailCadastradoException;
 import com.reiter.atividade1109apialunos.model.Aluno;
 
 import jakarta.validation.Valid;
@@ -54,11 +56,18 @@ public class AlunoService {
                 );
             }
         }
-     throw new RuntimeException("Aluno não entcontrado");
+     throw new AlunoNaoEncontradoException("Aluno não entcontrado");
     }
 
     public AlunoResponse cadastrarAluno(AlunoRequest req) {
-        alunos.add
+    	for (Aluno a : alunos) {
+       if (a.getEmail().equalsIgnoreCase(req.getEmail())) {
+    	   throw new EmailCadastradoException("Email já existe");
+    		   
+    	   }
+       }
+    	
+    	alunos.add
                 (new Aluno(id,
                         req.getNome(),
                         req.getEmail(),
@@ -83,7 +92,19 @@ public class AlunoService {
          */
     }
 
-    public AlunoResponse atualizarAluno(int id,@Valid AlunoRequest req) {
+
+    public AlunoResponse atualizarAluno(int id, @Valid AlunoRequest req) {
+
+        for (Aluno a : alunos) {
+
+            if (req.getEmail().equalsIgnoreCase(a.getEmail())
+                    && id != a.getId()) {
+
+                throw new EmailCadastradoException("Email já cadastrado");
+    
+
+    		}
+    	}
 
         for (Aluno a : alunos) {
             if (a.getId() == id) {
@@ -101,7 +122,7 @@ public class AlunoService {
 
             }
         }
-        return null;
+        throw new AlunoNaoEncontradoException("Aluno não encontrado");
 
     }
 
