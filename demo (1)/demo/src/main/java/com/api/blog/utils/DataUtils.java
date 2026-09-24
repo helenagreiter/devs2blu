@@ -26,7 +26,7 @@ public class DataUtils {
 
         List<PostModel> postList = new ArrayList<>();
         PostModel post1 = new PostModel();
-        post1.setAutor("Madona");
+        post1.setAutor("Homem Aranha");
         post1.setData(LocalDate.now());
         post1.setTexto("Lorem Ipsum is simply dummy text of the printing and typesetting industry."
         		+ " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
@@ -44,7 +44,7 @@ public class DataUtils {
         post1.setTitulo("Docker");
         
         PostModel post2 = new PostModel();
-        post2.setAutor("Xuxa");
+        post2.setAutor("Homem Aranha");
         post2.setData(LocalDate.now());
         post2.setTexto("Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
         		+ "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "

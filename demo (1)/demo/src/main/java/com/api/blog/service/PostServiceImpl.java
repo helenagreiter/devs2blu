@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.api.blog.dto.request.PostRequestDto;
@@ -12,7 +13,7 @@ import com.api.blog.dto.response.PostResponseDto;
 import com.api.blog.mapper.PostMapper;
 import com.api.blog.model.PostModel;
 import com.api.blog.repository.PostRepository;
-
+@Service
 public class PostServiceImpl implements PostService {
 
     private final PostRepository postRepository;
